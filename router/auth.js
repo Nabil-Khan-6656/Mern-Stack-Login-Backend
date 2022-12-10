@@ -5,6 +5,8 @@ const authenticate = require('../middleware/authenticate');
 const User = require('../model/userSchema');
 const bcrypt = require('bcryptjs');
 require('../db/conn');
+const cors = require('cors');
+router.use(cors())
 
 const cookieParser = require('cookie-parser');
 

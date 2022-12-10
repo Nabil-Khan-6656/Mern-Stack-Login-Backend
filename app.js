@@ -1,10 +1,12 @@
 const dotenv = require('dotenv');
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const PORT =  process.env.PORT || 5000;
 dotenv.config({path: './.env'});
 require('./db/conn');
 app.use(express.json())
+app.use(cors());
 
 // const User = require('./model/userSchema');
 

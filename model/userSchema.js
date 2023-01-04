@@ -23,7 +23,10 @@ const userSchema = new mongoose.Schema({
         type:Date,
         default:Date.now
     },
-
+     
+    Photo:{
+        type:String
+    },
     messages:[
         {
 

@@ -8,11 +8,31 @@ require('./db/conn');
 app.use(express.json())
 app.use(cors());
 
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
+
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 // const User = require('./model/userSchema');
+
+
+// Importing Posts model 
+require('./model/post');
 
 
 // We link the router file
 app.use(require('./router/auth'));
+app.use(require('./router/posts'));
 
  
 app.get('/', (req,res)=>{
